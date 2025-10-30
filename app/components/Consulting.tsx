@@ -19,30 +19,35 @@ const cards = [
 
 export default function Consulting() {
   return (
-    <section id="consulting" className="py-20 bg-surface/40">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="consulting" className="py-24 bg-gradient-to-b from-surface/40 via-surface/60 to-background relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-radial from-accent-neon/5 via-transparent to-transparent opacity-50" />
+      
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="font-orbitron text-2xl sm:text-3xl mb-8"
+          className="font-orbitron text-3xl sm:text-4xl mb-12 tracking-wider text-center"
         >
-          Consulting Services
+          CONSULTING SERVICES
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {cards.map((card, idx) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 * idx, duration: 0.5 }}
-              className="rounded-lg border border-white/5 bg-background/60 p-6 hover:border-accent-neon/40 transition"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.1 * idx, duration: 0.6 }}
+              className="card-glow p-8 hover:border-accent-neon/30 transition-all duration-300 group"
             >
-              <h3 className="font-semibold text-lg text-accent-neon">{card.title}</h3>
-              <p className="mt-3 text-white/80">{card.body}</p>
+              <h3 className="font-orbitron text-xl mb-4 text-accent-neon tracking-wide">{card.title.toUpperCase()}</h3>
+              <p className="text-white/70 leading-relaxed text-base">{card.body}</p>
+              {/* Hover accent line */}
+              <div className="mt-6 h-0.5 w-0 bg-gradient-to-r from-accent-neon to-accent-blue group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
         </div>
@@ -50,4 +55,3 @@ export default function Consulting() {
     </section>
   )
 }
-

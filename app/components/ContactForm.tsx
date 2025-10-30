@@ -31,35 +31,38 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-surface/40">
-      <div className="max-w-3xl mx-auto px-4">
+    <section id="contact" className="py-24 bg-gradient-to-b from-surface/40 via-surface/60 to-background relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-radial from-accent-neon/5 via-transparent to-transparent opacity-50" />
+      
+      <div className="max-w-3xl mx-auto px-4 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="font-orbitron text-2xl sm:text-3xl"
+          className="font-orbitron text-3xl sm:text-4xl mb-6 tracking-wider text-center"
         >
-          Contact Us
+          CONTACT US
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-4 text-white/80"
+          className="mt-4 text-white/75 text-lg text-center mb-12"
         >
           Have questions about mining or consulting? Send us a message.
         </motion.p>
 
         <motion.form
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ delay: 0.2, duration: 0.6 }}
           onSubmit={onSubmit}
-          className="mt-8 grid gap-4 rounded-lg border border-white/5 bg-background/60 p-6"
+          className="card-glow p-8 grid gap-6"
         >
           <div className="grid sm:grid-cols-2 gap-4">
             <label className="grid gap-2 text-sm">
@@ -96,7 +99,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="inline-flex items-center gap-2 rounded-md border border-accent-neon/40 bg-accent-neon/10 px-6 py-2 text-accent-neon hover:bg-accent-neon/20 transition disabled:opacity-60 disabled:cursor-not-allowed"
+                className="group relative inline-flex items-center gap-3 rounded-lg border border-accent-neon/50 bg-accent-neon/10 px-8 py-4 text-lg font-medium text-accent-neon hover:bg-accent-neon/20 transition-all duration-300 shadow-glow hover:shadow-glow-lg disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === 'loading' ? 'Sending…' : 'Send Message'}
             </button>
