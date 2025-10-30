@@ -64,7 +64,7 @@ export default function MiningExplanation() {
           </svg>
           {/* Placeholder for Lottie: a container with data attributes for future integration */}
           <div className="sr-only" data-lottie-placeholder>
-            Lottie placeholder: transaction -> block -> reward
+            Lottie placeholder: transaction → block → reward
           </div>
         </motion.div>
       </div>
