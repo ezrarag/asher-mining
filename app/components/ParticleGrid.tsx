@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 
 // Simple particle grid background component
 export default function ParticleGrid() {
@@ -39,6 +38,8 @@ export default function ParticleGrid() {
     let time = 0
 
     function animate() {
+      if (!ctx || !canvas) return
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.strokeStyle = 'rgba(255, 209, 102, 0.15)'
       ctx.lineWidth = 0.5
